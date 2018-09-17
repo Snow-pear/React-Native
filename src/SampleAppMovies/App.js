@@ -39,15 +39,6 @@ export default class MovieList extends Component {
             });
     }
 
-    render() {
-        if (!this.state.movies) {
-            return this.renderLoadingView();
-        }
-
-        let movie = this.state.movies[0];
-        return this.renderMovie(movie);
-    }
-
     renderLoadingView() {
         return (
             <View style={styles.container}>
@@ -71,6 +62,14 @@ export default class MovieList extends Component {
                 </View>
             </View>
         );
+    }
+
+    render() {
+        if (!this.state.movies) {
+            return this.renderLoadingView();
+        }
+        let movie = this.state.movies[0];
+        return this.renderMovie(movie);
     }
 }
 
